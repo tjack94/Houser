@@ -15,7 +15,9 @@ class Dashboard extends Component{
        this.getHouses()
 
     }
-    
+    componentDidMount(){
+        this.getHouses()
+    }
     getHouses(){
         axios.get('/api/houses').then(response=>{
             this.setState( { houses: response.data } )
@@ -32,10 +34,16 @@ class Dashboard extends Component{
                         />
         })
         return (
-            <div>
-                Dashboard
-                <Link to= '/wizard'><button>Add New Property</button></Link>
+            <div className= "dashboard_container">
+                <div className="dashboard_header">
+                <h1>Dashboard</h1>
+                <Link to= '/wizard/step1'><button>Add New Property</button></Link>
+                </div>
+                <hr/>
+                <div className="houses_list">
+                <h3>Home Listings</h3>
                 {houseList}
+                </div>
             </div>
         )
     }

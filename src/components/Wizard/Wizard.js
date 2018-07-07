@@ -1,50 +1,30 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
+import {Route} from 'react-router-dom'
+import StepOne from './Step1'
+import StepTwo from './Step2'
+import StepThree from './Step3'
+import {connect} from 'react-redux'
+import {cancelInput} from '../../ducks/reducer'
 
 class Wizard extends Component{
-    constructor(){
-        super()
-        this.state = {
-            name: "",
-            address: "",
-            city: "",
-            state: "",
-            zip: 0
-        }
-    }
-    handleChange(event, name) {
-		const value = event.target.value;
-		this.setState({ [name]: value });
-    }
-    handleSubmit(){
-        const newHouse= {
-            name: this.state.name,
-            address: this.state.address,
-            city: this.state.city,
-            state: this.state.state,
-            zip: this.state.zip
-        }
-        axios.post('/api/house', newHouse).then(()=>{})
-    }
+       
     render(){
+        const {cancelInput} = this.props
         return (
-            <div>
-                <h1>Add New Listing</h1>
-                <Link to= "/"><button>Cancel</button></Link>
-                <b>Property Name</b>
-                <input type="text" value= {this.state.name} onChange={(e)=> this.handleChange(e, "name")}/>
-                <b>Address</b>
-                <input type="text" value= {this.state.address} onChange={(e)=> this.handleChange(e, "address")}/>
-                <b>City</b>
-                <input type="text" value= {this.state.city} onChange={(e)=> this.handleChange(e, "city")}/>
-                <b>State</b>
-                <input type="text" value= {this.state.state} onChange={(e)=> this.handleChange(e, "state")}/>
-                <b>Zip</b>
-                <input type="text" value= {this.state.zip} onChange={(e)=> this.handleChange(e, "zip")}/>
-               <Link to= "/"><button onClick= {()=> this.handleSubmit()}>complete</button></Link>
+            <div className= "wizard_container">
+                <div className="wizard_header">
+                <h2>Add New Listing</h2>
+                <Link to= "/"><button className= 'cancel_button' onClick= {()=> cancelInput()}>Cancel</button></Link>
+                </div>
+                <Route path = '/wizard/step1' component= {StepOne}/>
+                <Route path = '/wizard/step2' component= {StepTwo}/>
+                <Route path = '/wizard/step3' component = {StepThree}/>
+              
             </div>
         )
     }
 }
-export default Wizard
+
+export default  connect(null, {cancelInput})(Wizard)

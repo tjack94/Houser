@@ -1,3 +1,9 @@
+body{
+  margin: 0;
+  padding: 0;
+  background-color: #AFD4C0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
 .App {
   text-align: center;
 }
@@ -25,4 +31,137 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.house_container{
+  display: flex;
+  justify-content: space-around;
+  background-color: #dedede;
+  margin-bottom: 20px;
+}
+.house_container p{
+  margin: 5px
+}
+.house_photo{
+  width: 175px;
+  height: 130px;
+}
+.dashboard_container,
+.wizard_container{
+  width: 50%;
+  margin: 0 25%;
+  background-color: #E5F4EC;
+  padding: 20px;
+
+}
+.wizard_container{
+  height: 88vh;
+}
+.dashboard_header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+.dashboard_header button{
+  font-weight: bold;
+  background-color: #8aea92;
+  border: none;
+  font-size: 20px;
+  padding: 10px
+}
+.dashboard_header h1{
+  font-weight: 400;
+  color: #3b5249;
+  font-size: 40px;
+  margin: 0;
+
+}
+.house_details,
+.pricing_details{
+  display: flex;
+  flex-direction: column;
+  align-items: baseline
+}
+.header{
+  background-color: #519872;
+  color: white;
+  display: flex;
+  align-items: center
+}
+.logo{
+
+  width: 34px;
+  height: 28px;
+  margin: 20px 20px 20px 425px
+}
+.houses_list{
+  display: flex;
+  flex-direction: column;
+}
+.houses_list h3{
+  align-self: baseline;
+  margin-left: 30px
+}
+.delete_button{
+  background-color: transparent;
+  border: none;
+  font-size: 30px;
+  padding: 0;
+  margin: 0
+}
+.delete_button:hover{
+  cursor: pointer
+}
+.inputs_container{
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+  align-items: baseline
+
+}
+.wizard_header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.cancel_button{
+  background-color: #FEc2c2;
+  border: none;
+  font-size: 15px;
+  padding: 8px;
+}
+.inputs_and_button{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+
+}
+.next_button{
+  background-color: #3b5249;
+  color: white;
+  font-size: 22px;
+  padding: 10px;
+  border: none;
+  margin-left: 450px;
+}
+.input{
+  margin: 20px
+}
+#city_state{
+  display: flex;
+  justify-content: space-around;
+}
+input{
+  margin: 0 10px
+}
+.address{
+  width: 400px
+}
+.step_two{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 70vh;
 }

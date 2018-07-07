@@ -10,9 +10,9 @@ module.exports = {
         },
         create: (req, res, next)=>{
             const dbInstance = req.app.get('db');
-            const {name, address, city, state, zip} = req.body
+            const {name, address, city, state, zip, url, mortgage, rent} = req.body
 
-            dbInstance.add_house([name, address, city, state, zip]).then(()=> res.status(200).send({message: "added item to database"}))
+            dbInstance.add_house([name, address, city, state, zip, url, mortgage, rent]).then(()=> res.status(200).send({message: "added item to database"}))
             .catch((err) => {
                 res.status(500).send({ errorMessage: 'Something went wrong!' });
                 console.log(err);

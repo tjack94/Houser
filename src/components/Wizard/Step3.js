@@ -35,11 +35,13 @@ class StepThree extends Component {
 		this.setState({ [name]: value });
 	}
 	handleSubmit() {
+		this.props.updateMortgage(this.state.mortgage);
+		this.props.updateRent(this.state.rent);
 		const newHouse = {
 			name: this.props.name,
 			address: this.props.address,
 			city: this.props.city,
-			state: this.props.state,
+			state: this.props.state1,
 			zip: this.props.zip,
 			url: this.props.url,
 			mortgage: this.state.mortgage,
@@ -53,10 +55,10 @@ class StepThree extends Component {
 			<div className="step_two">
 				<div>
 					<b>Monthly Mortgage Amount</b>
-					<input type="text" onChange={(e) => updateMortgage(e.target.value)} />
+					<input type="text" onChange={(e) => this.handleChange(e, "mortgage")} />
 
 					<b>Desired Monthly Rent</b>
-					<input type="text" onChange={(e) => updateRent(e.target.value)} />
+					<input type="text" onChange={(e) => this.handleChange(e, "rent")} />
 				</div>
 				<div>
 					<Link to="/">

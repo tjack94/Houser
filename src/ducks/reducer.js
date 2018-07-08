@@ -56,8 +56,6 @@ export default function reducer(state = initialState, action){
         return Object.assign({}, state, {mortgage: action.payload.mortgage, rent: action.payload.rent})
         
         case CANCEL:
-        return Object.assign({}, state, {name: action.payload.name, address: action.payload.address, city: action.payload.city, state1: action.payload.state, zip: action.payload.zip, url: action.payload.url, mortgage: action.payload.mortgage, rent: action.payload.rent})
-        default: return state
     }
 }
 

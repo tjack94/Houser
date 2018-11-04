@@ -13,7 +13,7 @@ class Dashboard extends Component {
 	componentWillMount() {
 		this.getHouses();
 	}
-	componentDidMount() {
+	componentDidUpdate () {
 		this.getHouses();
 	}
 	getHouses() {
@@ -46,3 +46,4 @@ class Dashboard extends Component {
 	}
 }
 export default Dashboard;
+
